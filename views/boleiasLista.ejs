@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+ 
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Boleias no Fundão</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+</head>
+ 
+<body>
+    
+
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+     <div class="container">
+        <div class="navbar-header">
+        <a class="navbar-brand" href="#">Boleias no Fundão</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="/listaBoleias">Lista de Boleias</a></li>
+        <li><a href="/boleiasteste">teste</a></li>   
+        <li><a href="/logout">logout</a></li>
+      </ul>
+            
+
+    </div>
+
+</div>
+ 
+<h1>Aqui esta a lista das boleias disponiveis</h1>
+
+<div class="container">
+<div class="table-data">
+  <h1>Boleias disponiveis  ida e volta : </h1>
+      <table border="3">
+          <tr>
+              <th>Nº</th>
+              <th>nome</th>
+              <th>telemovel</th>
+              <th>NIF</th>
+              <th>hora de:</th>
+              <th>hora ate :</th>
+              <th>Local Partida</th>
+              <th>Local Chegada</th>
+              <th>hora de2:</th>
+              <th>hora ate2 :</th>
+              <th>Local Partida2</th>
+              <th>Local Chegada2</th>
+              <th>Estado1</th>
+              <th>Estado2</th>
+              <th>EstadoFinal</th>
+          </tr> 
+          <%
+          if(userData.length!=0){
+          var i=1;
+          userData.forEach(function(data){
+          %>
+          <tr> 
+              <th><%=i; %></th>
+              <td><%=data.name; %></td>
+              <td><%=data.telemovel; %></td>
+              <td><%=data.NIF; %></td>
+              <td><%=data.horainicial; %></td>
+              <td><%=data.horafinal; %></td>
+              <td><%=data.localinicial; %></td>
+              <td><%=data.localfinal; %></td>
+              <td><%=data.horainicial2; %></td>
+              <td><%=data.horafinal2; %></td>
+              <td><%=data.localinicial2; %></td>
+              <td><%=data.localfinal2; %></td>
+              <td><%=data.perm1; %></td>
+              <td><%=data.perm2; %></td>
+              <td><%=data.permfinal; %></td>
+          </tr>
+          <%  i++; }) %>
+          <% } else{ %>
+              <tr>
+                  <td colspan="15">No Data Found</td>
+              </tr>
+          <% } %>
+
+      </table>
+      </div>
+      
+    </div>
+
+    <h3>Nota: se tiver 0 está por aceitar a 1 está aceite  </h3>   
+
+    <div class="panel-body">
+        <form class="form-signin" method="POST" action="/aceitarBoleia">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1"></span>
+                <input type="text" class="form-control" placeholder="Numero identificação fiscal" name="NIF" aria-describedby="basic-addon1">
+            </div>
+            <br />
+            <input type="submit" class="btn btn-default navbar-btn" value="Aceitar Boleia 1 " />
+
+        </form>
+    </div>
+
+    <div class="panel-body">
+        <form class="form-signin" method="POST" action="/aceitarBoleia2">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1"></span>
+                <input type="text" class="form-control" placeholder="Numero identificação fiscal" name="NIF" aria-describedby="basic-addon1">
+            </div>
+            <br />
+            <input type="submit" class="btn btn-default navbar-btn" value="Aceitar Boleia 2 " />
+
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

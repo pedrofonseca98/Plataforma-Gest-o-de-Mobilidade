@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+ 
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Boleias no Fundão</title>
+    <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      body {
+
+        background: url("https://i.postimg.cc/kGWQkBzY/DSC-4212.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+   }
+     input[type=text], select {
+       width: 100%;
+       padding: 12px 20px;
+       margin: 8px 0;
+       display: inline-block;
+       border: 1px solid #ccc;
+       border-radius: 4px;
+       box-sizing: border-box;
+     }
+     
+     input[type=submit] {
+       width: 100%;
+       background-color: #4c6baf;
+       color: white;
+       padding: 14px 20px;
+       margin: 8px 0;
+       border: none;
+       border-radius: 4px;
+       cursor: pointer;
+     }
+     
+     input[type=submit]:hover {
+       background-color: #4b45a0;
+     }
+     
+     .panel  {
+       border-radius: 5px;
+       background-color: #f2f2f2;
+       padding: 20px;
+       transform: translateX(8%) ;
+     }
+   </style>
+</head>
+ 
+<body>
+    
+
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+  <a class="navbar-brand" href="#">Boleias no fundao</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item ">
+        <a class="nav-link" href="/utilizador">Conta</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/minhasBoleias">As minhas Boleias</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Pedir Boleia
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/pedirBoleiaIda">Boleia Ida</a>
+          <a class="dropdown-item" href="/pedirBoleiaIdaVolta">Boleia Ida e Volta</a>
+        </div>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">logout</a>
+        </li>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
+
+
+<div class="container">
+  <br /> 
+  <br /> 
+  <div class="col-md-10">
+    <br /> 
+    <br /> 
+    <br /> 
+    <div class="panel panel-default">
+ 
+<div class="panel-heading" >
+  <h1>Dados do utilizador </h1>
+</div>
+<%
+if(userData.length!=0){
+var i=1;
+userData.forEach(function(data){
+%>
+<div class="panel-body">
+<label for="lname">Nome :</label>
+<input type="text" class="form-control"  value= "<%=data.name; %>" name="nome" aria-describedby="basic-addon1" readonly>
+</br>
+<label for="lname">Telemóvel :</label>
+<input type="text" class="form-control"  value= "<%=data.telemovel; %>" name="telemovel" aria-describedby="basic-addon1" readonly>
+</br>
+<label for="lname">email:</label>
+<input type="text" class="form-control"  value= "<%=data.email; %>" name="email" aria-describedby="basic-addon1" readonly>
+</br>
+<label for="lname">nºcc:</label>
+<input type="text" class="form-control"  value= "<%=data.CC; %>" name="CC" aria-describedby="basic-addon1" readonly>
+</br>
+<label for="lname">Freguesia:</label>
+<input type="text" class="form-control"  value= "<%=data.freguesia; %>" name="freguesia" aria-describedby="basic-addon1" readonly>
+</br>
+</br>
+<a class="btn btn-primary" href="/utilizadorAlterar" role="button">Alterar Dados</a>
+
+<%  i++; }) %>
+<% } %>
+</div>
+
+</div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
